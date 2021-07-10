@@ -1,0 +1,623 @@
+/* ---------------------------------------------------- */
+/* Basic setup */
+/* ---------------------------------------------------- */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  background-color: #fff;
+  color: #555;
+  font-family: "Lato", "Arial", sans-serif;
+  font-weight: 300;
+  font-size: 20px;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+.clearfix {
+  zoom: 1;
+}
+.clearfix:after {
+  content: ".";
+  clear: both;
+  display: block;
+  height: 0;
+  visibility: hidden;
+}
+
+/* ---------------------------------------------------- */
+/* Reusable components */
+/* ---------------------------------------------------- */
+
+section {
+  padding: 90px 0px;
+}
+
+.row {
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+/* Headings */
+
+h1,
+h2,
+h3 {
+  font-weight: 300;
+  text-transform: uppercase;
+}
+
+h1 {
+  margin: 0 0 20px 0;
+  color: #fff;
+  font-size: 200%;
+  word-spacing: 4px;
+  letter-spacing: 1px;
+}
+
+h2 {
+  font-size: 180%;
+  word-spacing: 2px;
+  text-align: center;
+  margin-bottom: 30px;
+  letter-spacing: 1px;
+}
+
+h2:after {
+  display: block;
+  height: 2px;
+  background-color: #e67e22;
+  content: " ";
+  width: 100px;
+  margin: 0 auto;
+  margin-top: 30px;
+}
+
+h3 {
+  font-size: 110%;
+  margin-bottom: 15px;
+}
+
+/* Paragraph */
+
+.long-copy {
+  line-height: 145%;
+  width: 70%;
+  margin-left: 15%;
+}
+
+.box {
+  padding: 1%;
+}
+
+.box p {
+  font-size: 90%;
+  line-height: 145%;
+  margin-bottom: 10px;
+}
+
+/* Icons */
+
+.icon-big {
+  font-size: 350%;
+  display: block;
+  color: #e67e22;
+  margin-bottom: 10px;
+}
+
+ion-icon {
+  --ionicon-stroke-width: 4%;
+}
+
+.icon-small {
+  display: inline-block;
+  width: 30px;
+  text-align: center;
+  color: #e67e22;
+  font-size: 120%;
+  line-height: 120%;
+  vertical-align: middle;
+  margin-top: -4px;
+  margin-right: 5px;
+}
+
+/* Buttons */
+
+.btn:link,
+.btn:visited,
+input[type="submit"] {
+  display: inline-block;
+  padding: 10px 30px;
+  font-weight: 300;
+  text-decoration: none;
+  border-radius: 200px;
+  border: 1px solid #e67e22;
+  transition: background-color 0.3s, border 0.3s, color 0.3s;
+}
+
+.btn-full:link,
+.btn-full:visited,
+input[type="submit"] {
+  color: #fff;
+  background-color: #e67e22;
+  margin-right: 15px;
+}
+
+.btn-ghost:link,
+.btn-ghost:visited {
+  color: #e67e22;
+}
+
+.btn:hover,
+.btn:active,
+input[type="submit"]:hover,
+input[type="submit"]:active {
+  background-color: #cf6d17;
+}
+
+.btn-full:hover,
+.btn-full:active {
+  border: 1px solid #cf6d17;
+}
+
+.btn-ghost:hover,
+.btn-ghost:active {
+  color: #fff;
+  border: 1px solid #cf6d17;
+}
+
+/* ---------------------------------------------------- */
+/* Header */
+/* ---------------------------------------------------- */
+
+.hero-text-box {
+  position: absolute;
+  width: 1140px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+header {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url(img/hero.jpg);
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  background-attachment: fixed;
+}
+
+.logo {
+  height: 100px;
+  width: auto;
+  float: left;
+  margin-top: 20px;
+}
+
+.logo-black {
+  width: auto;
+  height: 45px;
+  float: left;
+  margin: 5px 0;
+  display: none;
+}
+
+.main-nav {
+  float: right;
+  list-style: none;
+  margin-top: 55px;
+}
+
+.main-nav li {
+  display: inline-block;
+  margin-left: 40px;
+}
+
+.main-nav li a:link,
+.main-nav li a:visited {
+  padding: 8px 0;
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 90%;
+  border-bottom: 2px solid transparent;
+  transition: border-bottom 0.2s;
+}
+
+.main-nav li a:hover,
+.main-nav li a:active {
+  border-bottom: 2px solid #e67e22;
+}
+
+.mobile-nav-icon {
+  float: right;
+  margin-top: 30px;
+  cursor: pointer;
+  display: none;
+}
+
+.mobile-nav-icon ion-icon {
+  font-size: 200%;
+  color: #fff;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.99);
+  box-shadow: 0 2px 2px #ddd;
+  z-index: 9999;
+}
+
+.sticky .main-nav {
+  margin-top: 15px;
+}
+
+.sticky .main-nav li a:link,
+.sticky .main-nav li a:visited {
+  color: #555;
+  padding: 16px 0;
+}
+
+.sticky .logo-black {
+  display: block;
+}
+
+.sticky .logo {
+  display: none;
+}
+
+/* ---------------------------------------------------- */
+/* Features */
+/* ---------------------------------------------------- */
+
+.section-features .long-copy {
+  margin-bottom: 30px;
+}
+
+/* ---------------------------------------------------- */
+/* Links */
+/* ---------------------------------------------------- */
+
+a:link,
+a:visited {
+  color: #e67e22;
+  text-decoration: none;
+  padding-bottom: 1px;
+  border-bottom: 1px solid #e67e22;
+  transition: color 0.3s, border-bottom 0.3s;
+}
+
+a:hover,
+a:active {
+  color: #555;
+  border-bottom: 1px solid transparent;
+}
+
+/* ---------------------------------------------------- */
+/* Meals */
+/* ---------------------------------------------------- */
+
+.section-meals {
+  padding: 0;
+}
+
+.meals-showcase {
+  list-style: none;
+  width: 100%;
+}
+
+.meals-showcase li {
+  display: block;
+  float: left;
+  width: 25%;
+  height: auto;
+}
+
+.meal-photo {
+  background-color: #000;
+  width: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+
+.meal-photo img {
+  opacity: 0.7;
+  width: 100%;
+  height: auto;
+  transform: scale(1.15);
+  transition: transform 0.5s, opacity 0.5s;
+}
+
+.meal-photo img:hover {
+  opacity: 1;
+  transform: scale(1.03);
+}
+
+/* ---------------------------------------------------- */
+/* How it works */
+/* ---------------------------------------------------- */
+
+.section-steps {
+  background-color: #f1f1f1;
+}
+
+.steps-box:first-child {
+  text-align: right;
+  padding-right: 3%;
+  margin-top: 30px;
+}
+
+.steps-box:last-child {
+  margin-top: 70px;
+  padding-left: 3%;
+}
+
+.app-screen {
+  width: 60%;
+}
+
+.works-step {
+  margin-bottom: 50px;
+}
+
+.works-step:last-of-type {
+  margin-bottom: 80px;
+}
+
+.works-step div {
+  color: #e67e22;
+  border: 2px solid #e67e22;
+  border-radius: 50%;
+  height: 55px;
+  width: 55px;
+  text-align: center;
+  padding: 5px;
+  float: left;
+  font-size: 150%;
+  margin-right: 25px;
+}
+
+.button-app:link,
+.button-app:visited {
+  border: 0;
+}
+
+.button-app img {
+  height: 50px;
+  width: auto;
+  margin-right: 10px;
+}
+
+/* ---------------------------------------------------- */
+/* Cities */
+/* ---------------------------------------------------- */
+
+.box img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 15px;
+}
+
+.city-feature {
+  margin-bottom: 5px;
+}
+
+/* ---------------------------------------------------- */
+/* Customers */
+/* ---------------------------------------------------- */
+
+.section-testimonials {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url(img/back-customers.jpg);
+  background-size: cover;
+  color: #fff;
+  background-attachment: fixed;
+  height: 100vh;
+}
+
+blockquote {
+  padding: 2%;
+  font-style: italic;
+  line-height: 145%;
+  position: relative;
+  margin-top: 40px;
+}
+
+blockquote::before {
+  content: "\201c";
+  font-size: 500%;
+  display: block;
+  position: absolute;
+  top: -5px;
+  left: -5px;
+}
+
+cite {
+  font-size: 90%;
+  margin-top: 25px;
+  display: block;
+}
+
+cite img {
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
+/* ---------------------------------------------------- */
+/* Sign up */
+/* ---------------------------------------------------- */
+
+.section-plans {
+  background-color: #f1f1f1;
+}
+
+.plan-box {
+  background-color: #fff;
+  border-radius: 5px;
+  width: 90%;
+  margin-left: 5%;
+  box-shadow: 0 2px 2px #efefef;
+}
+
+.plan-box div {
+  padding: 15px;
+  border-bottom: 1px solid #e1e1e1;
+}
+
+.plan-box div:last-child {
+  text-align: center;
+  border: none;
+}
+
+.plan-box div:first-child {
+  background-color: #f8f8f8;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.plan-price {
+  font-size: 300%;
+  margin-bottom: 10px;
+  font-weight: 300;
+  color: #e67e22;
+}
+
+.plan-price span {
+  font-size: 30%;
+  font-weight: 400;
+}
+
+.plan-price-meal {
+  font-size: 80%;
+}
+
+.plan-box ul {
+  list-style: none;
+}
+
+.plan-box ul li {
+  padding: 5px 0;
+}
+
+/* ---------------------------------------------------- */
+/* Contact form */
+/* ---------------------------------------------------- */
+
+.contact-form {
+  width: 60%;
+  margin: 0px auto;
+}
+
+input[type="text"],
+input[type="email"],
+select,
+textarea {
+  width: 100%;
+  padding: 7px;
+  border-radius: 3px;
+  border-bottom: 1px solid #ccc;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+}
+
+textarea {
+  height: 100px;
+}
+
+input[type="checkbox"] {
+  margin: 10px 5px 10px 0;
+}
+
+*:focus {
+  outline: none;
+}
+
+/* ---------------------------------------------------- */
+/* Footer */
+/* ---------------------------------------------------- */
+
+footer {
+  background-color: #222;
+  padding: 50px;
+  font-size: 80%;
+}
+
+footer p {
+  color: #999;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.footer-nav {
+  list-style: none;
+  float: left;
+}
+
+.social-links {
+  list-style: none;
+  float: right;
+}
+
+.footer-nav li,
+.social-links li {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+.footer-nav li:last-child,
+.social-links li:last-child {
+  margin: 0;
+}
+
+.footer-nav li a:link,
+.footer-nav li a:visited,
+.social-links li a:link,
+.social-links li a:visited {
+  text-decoration: none;
+  border: none;
+  color: #999;
+  transition: color 0.2s;
+}
+
+.footer-nav li a:hover,
+.social-links li a:hover,
+.footer-nav li a:active,
+.social-links li a:active {
+  color: #eee;
+}
+
+.social-links li a:link,
+.social-links li a:visited {
+  font-size: 150%;
+}
+
+ion-icon {
+  transition: color 0.3s;
+}
+
+ion-icon[name="logo-facebook"]:hover {
+  color: #3b5998;
+}
+
+ion-icon[name="logo-google"]:hover {
+  color: #dd4b39;
+}
+
+ion-icon[name="logo-twitter"]:hover {
+  color: #00aced;
+}
+
+ion-icon[name="logo-instagram"]:hover {
+  color: #ff3eb5;
+}
